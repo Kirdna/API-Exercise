@@ -19,14 +19,24 @@ function showCoursesOnPage() {
 
             for (let i = 0; i < data.length; i++) {
                 let row = tableBody.insertRow(-1);
-                let cell1 = row.insertCell();
-                let cell2 = row.insertCell();
-                let cell3 = row.insertCell();
 
-                cell1.innerHTML = data[i].dept;
-                cell2.innerHTML = data[i].courseNum;
-                cell3.innerHTML = data[i].courseName;
+                let cell0 = row.insertCell(0);
+                cell0.innerHTML = data[i].dept;
+
+                let cell1 = row.insertCell(1);
+                cell1.innerHTML = data[i].courseNum;
+
+                let cell2 = row.insertCell(2);
+                cell2.innerHTML = data[i].courseName;
+
+                let cell3 = row.insertCell(3);
+
+                let anchor = document.createElement('a');                                       // creates <a> link tag.
+                anchor.href = `details.html?courseid=${data[i].id}`;                                                   // links to course details page.
+                anchor.text = data[i].courseName;                                           // puts the course nameon the HTML
+                cell3.appendChild(anchor);
+
             }
         });
-}
+    }
 //____________________________________________________________________________________________
